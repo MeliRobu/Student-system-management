@@ -9,7 +9,7 @@ FEATURES:
 
 """
 # IMPORT other modules
-from validations import name_validation
+from validations import name_validation, id_validation
 # Welcome message that initialize the whole program
 
 # Menu in a loop, that appears util the person chooses to exit.
@@ -18,7 +18,8 @@ from validations import name_validation
 
 def add_student():
     student_name = name_validation()
-    student_id= 
+    student_id= id_validation()
+    
 
 # Funtion to watch the student list, we can enumarate a list an show the information in order
 # Or we can keep the information in a CVS format and read it.
