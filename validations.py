@@ -12,16 +12,42 @@ def name_validation():
 def id_validation():
     try: 
         identificator = int(input("\nType the student's ID: "))
+        return identificator
     except ValueError:
         print("\n!....Hey! You may type the ID number, without blank spaces....!")
+        return id_validation()
+    
+# Funtion for validate the student's age
+def age_validation():
+    try: 
+        age = int(input("\nType the student's age: "))
+        return age
+    except ValueError:
+        print("\n!....Hey! You may type the number AGE....!")
+        return age_validation()
 
+# Funtion for validate the course or program
+def program_validation():
+    program = input("\nWhat is the student's course or program?: ")
+    if program.isalpha():
+        return program
+    else:
+        print("\n!...Hey! You may type ONLY a name, please try again....!")
+        return name_validation()
 
+# Funtion for validate student's status
 
-
-
+def status_validation():
+    status= input("Student status, type A (active) or I (inactive): ").upper()
+    if status == "A" or status == "I":
+        return status
+    else: 
+        print("!....You may insert ONLY  'A' or 'I'....!")
+        return status_validation()
+    
 
 
 
 #Testing area
 """for i in range(5):
-    id_validation()"""
+    status_validation()"""
