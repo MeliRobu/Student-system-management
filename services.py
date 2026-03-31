@@ -25,7 +25,7 @@ def add_student():
     status= status_validation()
     return {
         "name" : student_name,
-        "ide": student_id,
+        "id": student_id,
         "age": student_age,
         "course/program": program,
         "active/inactive": status
@@ -59,25 +59,22 @@ def register_students(register):
         write.writerow(register) #this writes a new row on the end of the file
 
 # Funtion for look for an specific student based on something(ex: ID, name)
-def student_info(id_s, info):
+def student_info(id_s, id):
     information= read_students()
-    if len(information)== 0:
-        print("The are not students yet")
-    elif id_s == info:
-        with open(FILE_CSV, 'r', newline='', encoding= 'utf-8') as file:
-            read= file.readlines(info)
-            print(read)
-
+    for student in information:
+        if student.get(id)== str(id_s):
+            print(f"Name: {student["name"]}, ID: {student["id"]}, Age: {student["age"]}, Course/program: {student["course/program"]}, Active/Inactive: {student["active/inactive"]}")
+                
 # FUntion for update a student's information
 
-def update_student(id_s, ides, new_data):
+def update_student(id_s, id, new_data):
     information = read_students()
     if len(information) == 0:
         print("\n||---This file is emphty---||")
         return False
     updated = False
     for inf in information:
-        if inf.get(ides)== id_s: #method for search a value from a specific key and validates the existance of the value and the code is comparing it
+        if inf.get(id)== str(id_s): #method for search a value from a specific key and validates the existance of the value and the code is comparing it
             inf.update(new_data) #method for update a dictionary
             updated = True
             break
@@ -89,7 +86,7 @@ def update_student(id_s, ides, new_data):
     return updated 
 
 # Funtion for delete a student
-def delete_student(id_s, ide):
+def delete_student(id_s, id):
     information = read_students()
     if len(information) == 0:
         print("\n||---This file is emphty---||")
@@ -97,7 +94,7 @@ def delete_student(id_s, ide):
     new_information= [] #This list save the rest of data when one student is eliminated
     deleted = False
     for inf in information:
-        if inf.get(ide)== id_s: #method for search a value from a specific key and validates the existance of the value
+        if inf.get(id)== str(id_s): #method for search a value from a specific key and validates the existance of the value
             deleted= True
             break
     if deleted:
