@@ -11,8 +11,8 @@ def name_validation():
 # Funtion for validate a student's ID
 def id_validation():
     try: 
-        identificator = int(input("\nType the student's ID: "))
-        return identificator
+        identity = int(input("\nType the student's ID: "))
+        return identity
     except ValueError:
         print("\n!....Hey! You may type the ID number, without blank spaces....!")
         return id_validation()
@@ -33,7 +33,7 @@ def program_validation():
         return program
     else:
         print("\n!...Hey! You may type ONLY a name, please try again....!")
-        return name_validation()
+        return program_validation()
 
 # Funtion for validate student's status
 
@@ -44,7 +44,20 @@ def status_validation():
     else: 
         print("!....You may insert ONLY  'A' or 'I'....!")
         return status_validation()
-    
+
+# Funtion for validates the menu option
+def menu_validation():
+    try:
+        option= int(input("Please select a number from the menu: "))
+        if 0 < option <=6:
+            return option
+        else:
+            print("!...Not a valid option, try again....!")
+    except ValueError:
+        print("\n!...You have to type ONLY a number, try again...!")
+        return menu_validation()
+
+
 
 
 
