@@ -36,7 +36,7 @@ while menu:
         case 4:
             print("\nTo delete please type the student's ID")
             id_s = id_validation()
-            deleted= delete_student(id_s, "ide")
+            deleted= delete_student(id_s, "id")
             if deleted:
                 print("\n***Sucessfull delete***")
             else:

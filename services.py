@@ -25,7 +25,7 @@ def add_student():
     status= status_validation()
     return {
         "name" : student_name,
-        "ide": student_id,
+        "id": student_id,
         "age": student_age,
         "course/program": program,
         "active/inactive": status
