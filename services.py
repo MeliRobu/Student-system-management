@@ -96,12 +96,15 @@ def delete_student(id_s, id):
     for inf in information:
         if inf.get(id)== str(id_s): #method for search a value from a specific key and validates the existance of the value
             deleted= True
-            break
-    if deleted:
-        with open(FILE_CSV, 'w', newline='', encoding= 'utf-8') as file: 
-            write= csv.DictWriter(file, fieldnames= information[0].keys()) 
-            write.writeheader()
-            write.writerows(new_information) 
-    return deleted
+        else:
+            new_information.append(inf)
+    
+    with open(FILE_CSV, 'w', newline='', encoding= 'utf-8') as file: 
+        write= csv.DictWriter(file, fieldnames= information[0].keys()) 
+        write.writeheader()
+        write.writerows(new_information)
+    
+    if deleted == False:
+        print("Not founded")
 
 
